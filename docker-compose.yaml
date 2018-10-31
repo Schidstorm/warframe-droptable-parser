@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  parser:
+    build: .
+    image: necromant/warframe-droptable-parser
+    volumes:
+      - warframe-parsed:/data
+
+volumes:
+  warframe-parsed:
+    external: true
