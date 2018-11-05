@@ -5,11 +5,11 @@ import modsByItem
 import os
 import csv
 import zip
+import file
 
 DROPTABLE_URL = 'http://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html'
 SEPARATOR = ";"
 ZIP_FILE_NAME = "data.zip"
-
 
 print("Loding Relicts")
 relicts = relictChances.load(DROPTABLE_URL)
@@ -29,10 +29,14 @@ if not os.path.exists("data"):
 
 
 
-print("Writing Zip to " + ZIP_FILE_NAME)
-zip.save("data/" + ZIP_FILE_NAME, {
-    "relicts.csv": csv.stringify(relicts, SEPARATOR),
-    "mission.csv": csv.stringify(missions, SEPARATOR),
-    "miscs.csv": csv.stringify(miscs, SEPARATOR),
-    "mods.csv": csv.stringify(mods, SEPARATOR)
-})
+print("Writing files to /data/relicts.csv")
+file.replace('/data/relicts.csv', csv.stringify(relicts, SEPARATOR))
+
+print("Writing files to /data/missions.csv")
+file.replace('/data/missions.csv', csv.stringify(missions, SEPARATOR))
+
+print("Writing files to /data/miscs.csv")
+file.replace('/data/miscs.csv', csv.stringify(miscs, SEPARATOR))
+
+print("Writing files to /data/mods.csv")
+file.replace('/data/mods.csv', csv.stringify(mods, SEPARATOR))
