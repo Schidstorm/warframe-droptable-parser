@@ -31,10 +31,16 @@ print("Create Data Directory")
 if not os.path.exists("data"):
     os.mkdir("data")
 
+allData = []
 for key, value in parsers.items():
     print("Loading " + key)
     content = value.load(DROPTABLE_URL)
     print("Writing files to /data/"+key+".csv")
     saveDataFile(key, content)
+    content['type'] = key;
+    allData += content
+
+print("Writing files to /data/all.csv")
+saveDataFile('all', allData)
 
 file.replace('/data/.updateTime', datetime.datetime.now().strftime("%Y-%m-%dT%T%z"))
