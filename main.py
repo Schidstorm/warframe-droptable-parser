@@ -37,8 +37,9 @@ for key, value in parsers.items():
     content = value.load(DROPTABLE_URL)
     print("Writing files to /data/"+key+".csv")
     saveDataFile(key, content)
-    content['type'] = key;
-    allData += content
+    for line in content:
+        line['type'] = key;
+        allData.append(line)
 
 print("Writing files to /data/all.csv")
 saveDataFile('all', allData)
