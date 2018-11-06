@@ -21,10 +21,11 @@ def parseMissionRewardTable(pyq):
         line = pq(_line)
         if line == None or len(line('.blank-row')) != 0:
             continue
-        if len(line('th')) == 1:
-            currentMissionName = line('th').text()
-        elif len(line('th')) == 2:
-            currentRotation = re.search('Rotation ([ABC])', line('th').text()).group(1)
+        if len(line('th')) > 0:
+            if re.match('Rotation [ABC]', line('th').text()):
+                currentRotation = re.search('Rotation ([ABC])', line('th').text()).group(1)
+            else:
+                currentMissionName = line('th').text()
         else:
             itemName = line('td:first').text()
             itemProbabilityText = line('td:last').text()
