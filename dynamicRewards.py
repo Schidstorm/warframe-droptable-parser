@@ -10,13 +10,7 @@ import httpLoader
 def load(url):
     d = pq(httpLoader.load(url))
     return parseItemAmountFromItemName( 
-        parseMissionRewardTable( d('#arbitrations + table') ) + 
-        parseMissionRewardTable( d('#plainsofeidolonincursions + table') ) + 
-        parseMissionRewardTable( d('#derelictvault + table') ) + 
-        parseMissionRewardTable( d('#phoridassassination + table') ) + 
-        parseMissionRewardTable( d('#nightmaremoderewards + table') ) + 
-        parseMissionRewardTable( d('#fomoriansabotage + table') ) + 
-        parseMissionRewardTable( d('#razorback + table') )
+        parseMissionRewardTable( d('#transientRewards + table') )
     )
 
 def parseMissionRewardTable(pyq):
