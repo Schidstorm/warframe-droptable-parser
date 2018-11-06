@@ -29,17 +29,20 @@ if not os.path.exists("data"):
     os.mkdir("data")
 
 
+def saveDataFile(dataName, content):
+    file.replace('/data/' + dataName + "_en.csv", csv.stringify(content, SEPARATOR))
+    file.replace('/data/' + dataName + "_de.csv", csv.stringify(content, SEPARATOR).replace('.', ','))
 
 print("Writing files to /data/relicts.csv")
-file.replace('/data/relicts.csv', csv.stringify(relicts, SEPARATOR))
+saveDataFile('relicts', relicts)
 
 print("Writing files to /data/missions.csv")
-file.replace('/data/missions.csv', csv.stringify(missions, SEPARATOR))
+saveDataFile('missions', missions)
 
 print("Writing files to /data/miscs.csv")
-file.replace('/data/miscs.csv', csv.stringify(miscs, SEPARATOR))
+saveDataFile('miscs', miscs)
 
 print("Writing files to /data/mods.csv")
-file.replace('/data/mods.csv', csv.stringify(mods, SEPARATOR))
+saveDataFile('mods', mods)
 
 file.replace('/data/.updateTime', datetime.datetime.now().strftime("%Y-%m-%dT%T%z"))
