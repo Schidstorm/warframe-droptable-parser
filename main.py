@@ -6,6 +6,7 @@ import os
 import csv
 import zip
 import file
+import datetime
 
 DROPTABLE_URL = 'http://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html'
 SEPARATOR = ";"
@@ -40,3 +41,5 @@ file.replace('/data/miscs.csv', csv.stringify(miscs, SEPARATOR))
 
 print("Writing files to /data/mods.csv")
 file.replace('/data/mods.csv', csv.stringify(mods, SEPARATOR))
+
+file.replace('/data/.updateTime', datetime.datetime.now().strftime("%Y-%m-%dT%T%z"))
