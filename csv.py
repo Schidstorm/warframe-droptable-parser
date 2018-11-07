@@ -6,10 +6,10 @@ def stringify(arrayOfDict, separator):
     for line in arrayOfDict:
         for key, value in line.items():
             columnMapSet[key] = 1
-    columnMap = [key for key in columnMapSet.keys()]
+    columnMap = [key.encode('utf-8') for key in columnMapSet.keys()]
     
     resultLines = []
-    resultLines.append(separator.join(columnMap))
+    resultLines.append(separator.encode('utf-8').join(columnMap))
 
     for line in arrayOfDict:
         resultLine = []
@@ -24,6 +24,6 @@ def stringify(arrayOfDict, separator):
                 resultLine.append(''.encode('utf-8'))
         resultLines.append(separator.encode('utf-8').join(resultLine))
     
-    return "\n".encode('utf-8').join([line for line in resultLines])
+    return "\n".encode('utf-8').join(resultLines)
 
 
