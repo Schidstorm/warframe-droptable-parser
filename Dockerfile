@@ -1,7 +1,7 @@
-FROM python
+FROM python:3
 
-RUN pip install pyquery
+RUN pip3 install pyquery
 
 COPY . .
 
-CMD [ "python", "main.py" ]
+CMD [ "python3", "main.py" ]
