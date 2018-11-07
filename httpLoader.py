@@ -1,11 +1,10 @@
 import urllib.request
-import urllib2
 
 def _loadWithoutCache(url):
-    req = urllib2.Request(url)
+    req = urllib.request.Request(url)
     req.add_header('From', 'dominik@schidlowski.eu')
     req.add_header('User-Agent', 'warframe-droptable-parser')
-    resp = urllib2.urlopen(req)
+    resp = urllib.request.urlopen(req)
     content = resp.read()
     return content
 
