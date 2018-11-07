@@ -6,4 +6,4 @@ def replace(fileName, content):
         os.remove(fileName)
 
     with codecs.open(fileName, "w+", "utf-8-sig") as f:
-        f.write(content);
+        f.write(content.decode('utf-8'));
