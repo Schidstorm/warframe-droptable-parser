@@ -6,6 +6,14 @@ services:
     image: necromant/warframe-droptable-parser
     volumes:
       - warframe-parsed:/data
+    logging:
+      driver: fluentd
+    networks:
+      - fluentd
+
+networks:
+  fluentd:
+    external: true
 
 volumes:
   warframe-parsed:
