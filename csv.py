@@ -15,7 +15,11 @@ def stringify(arrayOfDict, separator):
         resultLine = []
         for c in columnMap:
             if c in line:
-                resultLine.append(str(line[c]))
+                if isinstance(line[c], (int, long, float)):
+                    resultLine.append(str(line[c]).encode('utf-8'))
+                else:
+                    resultLine.append(line[c].encode('utf-8'))
+                
             else:
                 resultLine.append('')
         resultLines.append(separator.join(resultLine))
