@@ -1,6 +1,6 @@
 def stringify(arrayOfDict, separator):
     if len(arrayOfDict) == 0:
-        return ''
+        return ''.encode('utf-8')
     
     columnMapSet = {}
     for line in arrayOfDict:
