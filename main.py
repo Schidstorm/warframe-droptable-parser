@@ -44,4 +44,4 @@ for key, value in parsers.items():
 print("Writing files to /data/all.csv")
 saveDataFile('all', allData)
 
-file.replace('/data/.updateTime', datetime.datetime.now().strftime("%Y-%m-%dT%T%z"))
+file.replace('/data/.updateTime', datetime.datetime.now().strftime("%Y-%m-%dT%T%z").encode('utf-8'))
