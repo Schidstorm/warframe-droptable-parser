@@ -24,8 +24,8 @@ parsers = {
 }
 
 def saveDataFile(dataName, content):
-    file.replace('/data/' + dataName + "_en.csv", csv.stringify(content, SEPARATOR))
-    file.replace('/data/' + dataName + "_de.csv", csv.stringify(content, SEPARATOR).replace('.', ','))
+    file.replace('/data/' + dataName + "_en.csv", csv.stringify(content, SEPARATOR, 'en'))
+    file.replace('/data/' + dataName + "_de.csv", csv.stringify(content, SEPARATOR, 'de'))
 
 print("Create Data Directory")
 if not os.path.exists("data"):

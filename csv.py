@@ -1,4 +1,4 @@
-def stringify(arrayOfDict, separator):
+def stringify(arrayOfDict, separator, locale):
     if len(arrayOfDict) == 0:
         return ''.encode('utf-8')
     
@@ -16,7 +16,10 @@ def stringify(arrayOfDict, separator):
         for c in columnMap:
             if c in line:
                 if isinstance(line[c], (int, float)):
-                    resultLine.append(str(line[c]).encode('utf-8'))
+                    if locale == 'de':
+                        resultLine.append(str(line[c]).replace('.', ',').encode('utf-8'))
+                    else:
+                        resultLine.append(str(line[c]).encode('utf-8'))    
                 else:
                     resultLine.append(line[c].encode('utf-8'))
                 
