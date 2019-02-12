@@ -25,7 +25,7 @@ def stringify(arrayOfDict, separator, locale):
                 
             else:
                 resultLine.append('')
-        resultLine = map(lambda col: "\"" + col + "\"")
+        resultLine = map(lambda col: "\"" + col + "\"", resultLine)
         resultLines.append(separator.join(resultLine))
     
     return "\n".join(resultLines)
