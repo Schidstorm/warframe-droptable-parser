@@ -11,7 +11,7 @@ import file
 import datetime
 
 DROPTABLE_URL = 'http://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html'
-SEPARATOR = ";"
+SEPARATOR = ","
 ZIP_FILE_NAME = "data.zip"
 
 parsers = {
