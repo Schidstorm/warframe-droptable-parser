@@ -1,4 +1,4 @@
-version: '3.5'
+version: "3.5"
 
 services:
   parser:
@@ -6,12 +6,6 @@ services:
     image: necromant/warframe-droptable-parser
     volumes:
       - warframe-parsed:/data
-    networks:
-      - fluentd
-
-networks:
-  fluentd:
-    external: true
 
 volumes:
   warframe-parsed:
