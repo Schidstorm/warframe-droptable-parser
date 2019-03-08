@@ -36,6 +36,7 @@ for key, value in parsers.items():
     content = value.load(DROPTABLE_URL)
     if len(content) == 0:
         sys.stderr.write("Error, " + key + " table is empty.\n")
+        sys.exit(-1)
     print("Writing "+str(len(content))+" lines to /data/"+key+".csv")
     saveDataFile(key, content)
     for line in content:
