@@ -8,7 +8,6 @@ import csv
 import zip
 import file
 import datetime
-import sys
 
 DROPTABLE_URL = 'http://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html'
 SEPARATOR = ","
@@ -35,8 +34,7 @@ for key, value in parsers.items():
     print("Loading " + key)
     content = value.load(DROPTABLE_URL)
     if len(content) == 0:
-        sys.stderr.write("Error, " + key + " table is empty.\n")
-        sys.exit(-1)
+        raise RuntimeError("Error, " + key + " table is empty.")
     print("Writing "+str(len(content))+" lines to /data/"+key+".csv")
     saveDataFile(key, content)
     for line in content:
