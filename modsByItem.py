@@ -9,7 +9,7 @@ import httpLoader
 
 def load(url):
     d = pq(httpLoader.load(url))
-    miscTable = d('#modLocations + table')
+    miscTable = d('#modByDrop + table')
     return parseModLocationsTable(miscTable)
 
 def parseModLocationsTable(pyq):

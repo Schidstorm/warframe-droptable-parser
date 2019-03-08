@@ -1,6 +1,5 @@
 import relictChances
 import missionRewards
-import misscenallousDrops
 import modsByItem
 import dynamicRewards
 import sortie
@@ -9,6 +8,7 @@ import csv
 import zip
 import file
 import datetime
+import sys
 
 DROPTABLE_URL = 'http://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html'
 SEPARATOR = ","
@@ -17,7 +17,6 @@ ZIP_FILE_NAME = "data.zip"
 parsers = {
     'relicts': relictChances,
     'missions': missionRewards,
-    'miscs': misscenallousDrops,
     'mods': modsByItem,
     'dynamic': dynamicRewards,
     'sortie': sortie
@@ -35,6 +34,8 @@ allData = []
 for key, value in parsers.items():
     print("Loading " + key)
     content = value.load(DROPTABLE_URL)
+    if len(content) == 0:
+        sys.stderr.write("Error, " + key + " table is empty.\n")
     print("Writing "+str(len(content))+" lines to /data/"+key+".csv")
     saveDataFile(key, content)
     for line in content:
