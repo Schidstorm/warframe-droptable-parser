@@ -10,7 +10,6 @@ import httpLoader
 def load(url):
     d = pq(httpLoader.load(url))
     missionsTable = d('#missionRewards + table')
-    return []
     return parseItemAmountFromItemName( parseMissionRewardTable( missionsTable ) )
 
 def parseMissionRewardTable(pyq):
