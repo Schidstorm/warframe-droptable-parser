@@ -1,4 +1,5 @@
-def stringify(arrayOfDict, separator, locale):
+def stringify(arrayOfDict, locale):
+    separator = ';' if locale == 'de' else ','
     if len(arrayOfDict) == 0:
         return ''
     
