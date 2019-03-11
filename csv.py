@@ -24,11 +24,10 @@ def stringify(arrayOfDict, locale):
                     else:
                         resultLine.append(str(line[c]).encode('utf-8').decode('utf-8'))    
                 else:
-                    resultLine.append(line[c].encode('utf-8').decode('utf-8'))
+                    resultLine.append("\"" + line[c].encode('utf-8').decode('utf-8') + "\"")
                 
             else:
                 resultLine.append('')
-        resultLine = map(lambda col: col if isinstance(col, numbers.Number) else "\"" + col + "\"" , resultLine)
         resultLines.append(separator.join(resultLine))
     
     return "\n".join(resultLines)
